@@ -5,9 +5,12 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "tipos")
@@ -20,7 +23,8 @@ public class Tipo {
 	@Column(name = "nombre", length = 30)
 	private String nombre;
 	
-	@OneToMany(mappedBy = "tipo")
+	@JsonIgnoreProperties("tipo")
+	@OneToMany(mappedBy = "tipo", fetch = FetchType.LAZY)
 	private List<Habitacion> habitaciones;
 	
 	public Tipo() {

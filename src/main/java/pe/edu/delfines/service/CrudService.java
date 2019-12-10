@@ -1,4 +1,4 @@
-package pe.edu.delfines.services;
+package pe.edu.delfines.service;
 
 import java.util.List;
 import java.util.Optional;
